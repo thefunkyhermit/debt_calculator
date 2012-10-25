@@ -7,7 +7,7 @@ debtApp.controller('MainCtrl', function ($scope) {
         'Testacular'
     ];
     $scope.index = 0;
-    $scope.debtId = 0;
+
     $scope.debts = [
         {id: $scope.index++, name:'Line Of Credit', value:'4998', rate:'5.5'},
         {id: $scope.index++, name:'loan', value:'4999', rate:'6.3'}
@@ -57,6 +57,7 @@ debtApp.controller('MainCtrl', function ($scope) {
                     }
                 });
             }
+            numberOfMonths = 'It will take you ' + numberOfMonths + ' months to pay off this debt.';
         } catch (error) {
             numberOfMonths = error;
         }

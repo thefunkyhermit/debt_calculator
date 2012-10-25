@@ -8,9 +8,9 @@
     <!--<p>installed.</p>-->
 
     <!--<h3>Enjoy coding! - Yeoman</h3>-->
-    <h3>Debt Payment Calculator</h3>
+    <h2>Debt Payment Calculator</h2>
 </div>
-<h5>Add all your debts here.</h5>
+<h4>Add all your debts here</h4>
 <table>
     <thead>
     <td>Name of Debt</td>
@@ -34,7 +34,7 @@
 </table>
 <p>&nbsp;</p>
 <div ng-hide="debts.length == 0">
-<h5>Your Current debt load</h5>
+<h4>Your Current debt load</h4>
 
 <table>
     <thead>
@@ -52,10 +52,8 @@
         <td>{{debt.rate}}</td><td><button class="btn-small" ng-click="removeDebt(debt.id)">Remove</button></td>
     </tr>
 </table></div>
-
-<p>&nbsp;</p>
+<h5>Total: ${{totalValueOfDebts()}}</h5>
 Amount you can pay per month: <input type="text" ng-model="payPerMonth" placeholder="Amount per Month"/> <button class="btn-small" ng-click="startAgain()">Start Again</button>
 <p>&nbsp;</p>
 
-It will take you {{calculatePayments()}} months to pay off this debt.
-Total: ${{totalValueOfDebts()}}
+{{calculatePayments()}}
