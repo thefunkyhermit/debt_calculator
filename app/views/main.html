@@ -1,0 +1,61 @@
+<div class="hero-unit">
+    <!--<h1>Cheerio!</h1>-->
+
+    <!--<p>You now have</p>-->
+    <!--<ul>-->
+    <!--<li ng-repeat="thing in awesomeThings">{{thing}}</li>-->
+    <!--</ul>-->
+    <!--<p>installed.</p>-->
+
+    <!--<h3>Enjoy coding! - Yeoman</h3>-->
+    <h3>Debt Payment Calculator</h3>
+</div>
+<h5>Add all your debts here.</h5>
+<table>
+    <thead>
+    <td>Name of Debt</td>
+    <td>Total Owed</td>
+    <td>Interest</td>
+    <td></td>
+    </thead>
+    <tr>
+        <td>
+            <input type="text" placeholder="Name of Debt" ng-model="debtName"/>
+
+        </td>
+        <td><input type="text" placeholder="Total Owed" ng-model="debtValue"/>
+        </td>
+        <td><input type="text" placeholder="Interest Rate" ng-model="debtRate"/>
+        </td>
+        <td>
+            <button class="btn-primary" ng-click="addDebt()">Add another Debt</button>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<div ng-hide="debts.length == 0">
+<h5>Your Current debt load</h5>
+
+<table>
+    <thead>
+    <td>Debt Name</td>
+    <td>&nbsp;</td>
+    <td>Amount Owing</td>
+    <td>&nbsp;</td>
+    <td>Interest Rate</td><td>&nbsp;</td>
+    </thead>
+    <tr class="table" ng-repeat="debt in debts">
+        <td>{{debt.name}}</td>
+        <td>&nbsp;</td>
+        <td>${{debt.value}}</td>
+        <td>&nbsp;</td>
+        <td>{{debt.rate}}</td><td><button class="btn-small" ng-click="removeDebt(debt.id)">Remove</button></td>
+    </tr>
+</table></div>
+
+<p>&nbsp;</p>
+Amount you can pay per month: <input type="text" ng-model="payPerMonth" placeholder="Amount per Month"/> <button class="btn-small" ng-click="startAgain()">Start Again</button>
+<p>&nbsp;</p>
+
+It will take you {{calculatePayments()}} months to pay off this debt.
+Total: ${{totalValueOfDebts()}}
